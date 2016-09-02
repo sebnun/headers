@@ -4,7 +4,7 @@ const useragent = require("useragent");
 http.createServer(function (req, res) {
 
     let response = {
-        "ipaddress": headers["x-real-ip"],
+        "ipaddress": req.headers["x-real-ip"],
         "language": req.headers["accept-language"].slice(0, req.headers["accept-language"].indexOf(",")),
         "software": useragent.parse(req.headers['user-agent']).os.toString()
     };
